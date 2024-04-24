@@ -1,4 +1,31 @@
-// Function to submit the order
+document.addEventListener('DOMContentLoaded', function() {
+  // Bind the event listeners to the buttons
+  document.getElementById('calculate-total').addEventListener('click', calculateTotal);
+  document.getElementById('submit-order').addEventListener('click', submitOrder);
+  document.getElementById('reset-calculator').addEventListener('click', resetCalculator);
+});
+
+function calculateTotal() {
+  var total = 0;
+  var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+
+  checkboxes.forEach(function(checkbox) {
+    var quantityInput = checkbox.closest('.menu-item').querySelector('input[type="number"]');
+    var quantity = parseInt(quantityInput.value, 10);
+    var price = parseFloat(checkbox.value);
+    total += price * quantity;
+  });
+
+  // Check if discount is applied
+  var discountApplied = document.getElementById('discount-checkbox').checked;
+  if (discountApplied) {
+    total *= 0.85; // Apply 15% discount
+  }
+
+  // Update the total display
+  document.getElementById('total').textContent = '$' + total.toFixed(2);
+}
+
 function submitOrder() {
   var nameInput = document.getElementById('name');
   if (!nameInput || nameInput.value.trim() === '') {
@@ -22,7 +49,7 @@ function submitOrder() {
   });
 
   var total = parseFloat(document.getElementById('total').textContent.substring(1));
-  
+
   // Check if discount is applied
   var discountApplied = document.getElementById('discount-checkbox').checked;
   if (discountApplied) {
@@ -37,13 +64,23 @@ function submitOrder() {
     items: selectedItems
   };
 
-  // Send the data to Google Sheets using Google Apps Script
-  google.script.run.submitOrder(formData, function(response) {
-    if (response === 'success') {
-      alert('Order submitted successfully!');
-    } else {
-      alert('Failed to submit the order. Please try again.');
-    }
+  // Send the data to Google Sheets using the webhook provided by Google Apps Script
+  fetch('https://script.google.com/macros/s/AKfycbwCpP0Q22eG7P_O2TOGk53r49K29SINDc4XtmKOwhng1Ac_6CXdnNLKLeJsPFu9DX4k/exec', {
+    method: 'POST',
+    mode: 'no-cors', // to prevent CORS errors
+    redirect: 'follow',
+    body: JSON.stringify(formData),
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    }),
+  })
+  .then(response => {
+    alert('Order submitted successfully!');
+    resetCalculator(); // Reset the form on successful submission
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Failed to submit the order. Please try again.');
   });
 }
 
@@ -62,6 +99,4 @@ function resetCalculator() {
   
   document.getElementById('total').textContent = '$0.00';
 
-  // Reset the discount checkbox
-  document.getElementById('discount-checkbox').checked = false;
 }
