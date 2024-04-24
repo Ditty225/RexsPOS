@@ -49,12 +49,7 @@ function submitOrder() {
   });
 
   var total = parseFloat(document.getElementById('total').textContent.substring(1));
-
-  // Check if discount is applied
   var discountApplied = document.getElementById('discount-checkbox').checked;
-  if (discountApplied) {
-    total *= 0.85; // Apply 15% discount
-  }
 
   // Prepare the data to send to Google Sheets
   var formData = {
@@ -63,16 +58,20 @@ function submitOrder() {
     discountApplied: discountApplied,
     items: selectedItems
   };
-  fetch('https://script.google.com/macros/s/AKfycbwCpP0Q22eG7P_O2TOGk53r49K29SINDc4XtmKOwhng1Ac_6CXdnNLKLeJsPFu9DX4k/exec', {
+
+  // The URL from your Google Apps Script Web App Deployment
+  var googleAppsScriptWebAppUrl = 'https://script.google.com/macros/s/AKfycbwCpP0Q22eG7P_O2TOGk53r49K29SINDc4XtmKOwhng1Ac_6CXdnNLKLeJsPFu9DX4k/exec';
+
+  // Fetch call to send the data to Google Apps Script Web App
+  fetch(googleAppsScriptWebAppUrl, {
     method: 'POST',
-    mode: 'no-cors', // to prevent CORS errors
-    redirect: 'follow',
-    body: JSON.stringify(formData),
-    headers: new Headers({
-      'Content-Type': 'application/json'
-    }),
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData)
   })
-  .then(response => {
+  .then(() => {
     alert('Order submitted successfully!');
     resetCalculator(); // Reset the form on successful submission
   })
@@ -81,6 +80,7 @@ function submitOrder() {
     alert('Failed to submit the order. Please try again.');
   });
 }
+
 
 // Function to reset the calculator
 function resetCalculator() {
