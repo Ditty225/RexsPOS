@@ -63,8 +63,7 @@ function submitOrder() {
     discountApplied: discountApplied,
     items: selectedItems
   };
-
-  // Send the data to Google Sheets using the webhook provided by Google Apps Script
+https://script.google.com/macros/s/AKfycbyxMaMuMF3nKgmQH2f6X_98ZejBiAMmHBLWIdR-8ZM/deva to Google Sheets using the webhook provided by Google Apps Script
   fetch('https://script.google.com/macros/s/AKfycbwCpP0Q22eG7P_O2TOGk53r49K29SINDc4XtmKOwhng1Ac_6CXdnNLKLeJsPFu9DX4k/exec', {
     method: 'POST',
     mode: 'no-cors', // to prevent CORS errors
