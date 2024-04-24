@@ -1,0 +1,76 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #E3FDFD; /* A light aqua background */
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.menu-item {
+  background-color: #FFE0F0; /* A soft pink background for menu items */
+  border: 1px solid #FF61A6; /* A pink border for emphasis */
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 800px;
+}
+
+.menu-item img {
+  width: 50px;
+  height: auto;
+  margin-left: 10px;
+}
+
+button {
+  background-color: #FF61A6; /* A vibrant pink for buttons */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #FFC3A0; /* A light orange for hover effect */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.total-box {
+  margin-top: 20px;
+  color: #FF9A8B; /* An orange-pink color for the total box text */
+}
+
+.company-logo img {
+  max-width: 50%;
+  height: auto;
+}
+
+/* Additional styles for headings and labels if needed */
+h1, h2 {
+  color: #FF61A6; /* Matching headings to button colors */
+}
+
+label {
+  color: #FF9A8B; /* Matching labels to total box text */
+}
