@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rex's Diner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #E3FDFD; /* A light aqua background */
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 100vh;
+    }
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .menu-item {
+      background-color: #FFE0F0; /* A soft pink background for menu items */
+      border: 1px solid #FF61A6; /* A pink border for emphasis */
+      padding: 10px;
+      margin: 10px auto;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 800px;
+    }
+    .menu-item img {
+      width: 50px;
+      height: auto;
+      margin-left: 10px;
+    }
+    button {
+      background-color: #FF61A6; /* A vibrant pink for buttons */
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #FFC3A0; /* A light orange for hover effect */
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .total-box {
+      margin-top: 20px;
+      color: #FF9A8B; /* An orange-pink color for the total box text */
+    }
+    .company-logo img {
+      max-width: 50%;
+      height: auto;
+    }
+    /* Additional styles for headings and labels if needed */
+    h1, h2 {
+      color: #FF61A6; /* Matching headings to button colors */
+    }
+    label {
+      color: #FF9A8B; /* Matching labels to total box text */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="company-logo">
+      <img src="RexDinerLogo.png" alt="Rex's Diner Logo">
+    </div>
+    
+  <h1>Rex's Diner Order Form</h1>
+
+  <section class="menu-items">
+    <h2>Lubricants</h2>
+    <div class="menu-item">
+      <input type="checkbox" id="motorOilCoffee" value="200">
+      <label for="motorOilCoffee">Motor Oil Coffee - $200</label>
+      <input type="number" value="1" min="1">
+      <img src="motor-oil-coffee.png" alt="Motor Oil Coffee">
+    </div>
+    <div class="menu-item">
+      <input type="checkbox" id="engineCoolantIcedTea" value="150">
+      <label for="engineCoolantIcedTea">Engine Coolant Ice Tea - $150</label>
+      <input type="number" value="1" min="1">
+      <img src="engine-coolant-ice-tea.png" alt="Engine Coolant Ice Tea">
+    </div>
+    <div class="menu-item">
+      <input type="checkbox" id="eCola" value="100">
+      <label for="eCola">eCola - $100</label>
+      <input type="number" value="1" min="1">
+      <img src="ecola.png" alt="eCola">
+    </div>
+    <div class="menu-item">
+      <input type="checkbox" id="sprunk" value="100">
+      <label for="sprunk">Sprunk - $100</label>
+      <input type="number" value="1" min="1">
+      <img src="sprunk.png" alt="Sprunk">
+    </div>
+    <div class="menu-item">
+      <input type="checkbox" id="radiatorFlushLemonade" value="200">
+      <label for="radiatorFlushLemonade">Radiator Flush Lemonade - $200</label>
+      <input type="number" value="1" min="1">
+      <img src="lemonade.png" alt="Radiator Flush Lemonade">
+    </div>
+
+<section class="menu-items">
+  <h2>Main Dish</h2>
+  <div class="menu-item">
+    <input type="checkbox" id="garageFries" value="100">
+    <label for="garageFries">Garage Fries - $100</label>
+    <input type="number" value="1" min="1">
+    <img src="garage-fries.png" alt="Garage Fries">
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="poppers" value="100">
+    <label for="poppers">Piston Poppers - $100</label>
+    <input type="number" value="1" min="1">
+    <img src="piston-poppers.png" alt="Piston Poppers">
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="quesadillas" value="100">
+    <label for="quesadillas">Gasket Quesadillas - $100</label>
+    <input type="number" value="1" min="1">
+    <img src="gasket-quesadillas.png" alt="Gasket Quesadillas">
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="sparetots" value="100">
+    <label for="sparetots">Spare Tire Tots - $100</label>
+    <input type="number" value="1" min="1">
+    <img src="spare_tire_tots.png" alt="Spare Tire Tots">
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="dipdip" value="100">
+    <label for="dipdip">Dipstick Dippers - $100</label>
+    <input type="number" value="1" min="1">
+    <img src="dipstick_dippers.png" alt="Dipstick Dippers">
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="onionring" value="100">
+    <label for="onionring">Oil Change Onion Ringa - $100</label>
+    <input type="number" value="1" min="1">
+    <img src="oil_change_onion_rings.png" alt="Oil Change Onion Rings">
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="burger" value="225">
+    <label for="burger">Clutch Burger - $225</label>
+    <input type="number" value="1" min="1">
+    <img src="clutch_burger.png" alt="Clutch Burger">
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="grillchickensandwich" value="225">
+    <label for="grillchickensandwich">Carburetor Grilled Chicken Sandwich - $225</label>
+    <input type="number" value="1" min="1">
+    <img src="carburetor-grilled-chicken-sandwich.png" alt="Carburetor Grilled Chicken Sandwich">	
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="chickensandwich" value="225">
+    <label for="chickensandwich">Carburetor Fried Chicken Sandwich - $225</label>
+    <input type="number" value="1" min="1">
+    <img src="carburetor-fried-chicken-sandwich.png" alt="Carburetor Fried Chicken Sandwich">	
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="frank" value="225">
+    <label for="frank">Fuel Line Frank - $225</label>
+    <input type="number" value="1" min="1">
+    <img src="fuel-line-frank.png" alt="Fuel Line Frank">
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="steak" value="225">
+    <label for="steak">V8 Steak Charger - $225</label>
+    <input type="number" value="1" min="1">
+    <img src="v8-steak-charger.png" alt="V8 Steak Charger">
+  </div>
+</section>
+
+<section class="menu-items">
+  <h2>Refuel</h2>
+  <div class="menu-item">
+    <input type="checkbox" id="chocolateMilkshake" value="175">
+    <label for="chocolateMilkshake">Chocolate Milkshake Manifold - $175</label>
+    <input type="number" value="1" min="1">
+    <img src="chocolate-milkeshake.png" alt="Chocolate Milkshake">
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="strawberrymilk" value="175">
+    <label for="strawberrymilk">Strawberry Milkshake Manifold - $175</label>
+    <input type="number" value="1" min="1">
+    <img src="strawberry-milkshake.png" alt="Strawberry Milkshake">
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="vanillamilkshake" value="175">
+    <label for="vanillamilkshake">Vanilla Milkshake Manifold - $175</label>
+    <input type="number" value="1" min="1">
+    <img src="vanilla-milkshake.png" alt="Vanilla Milkshake">
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="waffles" value="175">
+    <label for="waffles">Wrench Waffles - $175</label>
+    <input type="number" value="1" min="1">
+    <img src="wrench-waffles.png" alt="Wrench Waffles">
+  </div>
+  <div class="menu-item">
+    <input type="checkbox" id="brownie" value="175">
+    <label for="brownie">Battery Boost Brownie Sundae - $175</label>
+    <input type="number" value="1" min="1">
+    <img src="battery-boost-brownie-sundae.png" alt="Battery Boost Brownie Sundae">
+  </div>
+</section>
+
+  <div class="order-details">
+    <label for="name">Employee Name:</label>
+    <input type="text" id="name" name="name">
+  </div>
+    
+
+
+    <div class="total-box">
+      <span>Total: $</span>
+      <span id="total">0.00</span>
+    </div>
+    
+   <!-- Add a discount checkbox -->
+<label for="discount-checkbox">Apply Discount</label>
+<input type="checkbox" id="discount-checkbox" onclick="calculateTotal()">
+ 
+
+
+<div class="button-container">
+  <button onclick="calculateTotal()">Calculate Total</button>
+  <button onclick="submitOrder()">Submit Order</button> <!-- Ensures submitOrder is called -->
+  <button onclick="resetCalculator()">Reset</button>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
